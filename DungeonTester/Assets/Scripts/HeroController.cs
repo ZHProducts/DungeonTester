@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class HeroController : MonoBehaviour
@@ -25,8 +26,6 @@ public class HeroController : MonoBehaviour
         inputVert = Input.GetAxis("Vertical");
 
         inputMovement = new Vector2(inputHoriz, inputVert) * Time.deltaTime * speed;
-
-        Debug.Log(rbBody.position.x + "/" + rbBody.position.y);
     }
 
     private void FixedUpdate()
@@ -35,5 +34,16 @@ public class HeroController : MonoBehaviour
         currentRbPosition += inputMovement * Time.deltaTime * speed;
 
         rbBody.MovePosition(currentRbPosition);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+
+        HiveBasis target = other.gameObject.GetComponent<HiveBasis>();
+
+        Debug.Log("Player collidet with: " + target);
+
+        if (target != null)
+            target.ChangeHealth(-1);
     }
 }
