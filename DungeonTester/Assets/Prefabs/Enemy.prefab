@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85104408d2a085f44860930be66f0d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atkcooldownmax: 2
   maxHealth: 10
   MoneyDrop: {fileID: 1541965378071534076, guid: c618b480f75109b40bff3661ea35a7ee,
     type: 3}

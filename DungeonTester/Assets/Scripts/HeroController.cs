@@ -36,14 +36,4 @@ public class HeroController : MonoBehaviour
         rbBody.MovePosition(currentRbPosition);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-
-        HiveBasis target = other.gameObject.GetComponent<HiveBasis>();
-
-        Debug.Log("Player collidet with: " + target);
-
-        if (target != null)
-            target.ChangeHealth(-1);
-    }
 }

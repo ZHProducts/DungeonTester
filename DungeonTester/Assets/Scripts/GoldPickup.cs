@@ -8,6 +8,8 @@ public class GoldPickup : MonoBehaviour
     HeroController player;
     GameMaster GM;
 
+    [SerializeField] private int moneyWorth = 1;
+
     private void Start()
     {
         GM = GameObject.Find("GameMaster").GetComponent<GameMaster>();
@@ -18,7 +20,7 @@ public class GoldPickup : MonoBehaviour
         player = collision.gameObject.GetComponent<HeroController>();
         if (player != null)
         {
-            GM.changeMoney(1);
+            GM.changeMoney(moneyWorth);
             Destroy(gameObject);
         }
     }

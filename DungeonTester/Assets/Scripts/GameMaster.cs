@@ -3,13 +3,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
-{
-
-    
+{    
     Text moneyAmountUI, basisHealthUI;
     int playerMoney = 0;
     int basisHealth = 100;
-
 
     void Start()
     {
@@ -18,20 +15,17 @@ public class GameMaster : MonoBehaviour
 
         moneyAmountUI.text = $"Money: {playerMoney}";
         basisHealthUI.text = $"BasisHealth: {basisHealth}";
-
     }
 
     public void changeMoney(int amount)
     {
         playerMoney += amount;
-
         moneyAmountUI.text = $"Money: {playerMoney}";
     }
 
     public void changeBasisHealth(int amount)
     {
         basisHealth += amount;
-
         basisHealthUI.text = $"BasisHealth: {basisHealth}";
     }
 
@@ -40,8 +34,6 @@ public class GameMaster : MonoBehaviour
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(levelBuildIndex))
         {
             SceneManager.LoadScene(levelBuildIndex);
-
-            Debug.Log("Changing Scene");
         }
     }
 

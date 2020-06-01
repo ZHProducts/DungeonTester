@@ -7,20 +7,15 @@ public class Bullet : MonoBehaviour
 
     EnemyController target;
 
+    private int bulletDamage = 1;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("I hit " + collision.gameObject);
-
         if (collision.gameObject.tag == "Enemy")
         {
             target = collision.gameObject.GetComponent<EnemyController>();
-
-            target.ChangeHealth(-1);
+            target.ChangeHealth(-bulletDamage);
         }
-            
-
-        Destroy(gameObject);
-
-        
+        Destroy(gameObject);     
     }
 }

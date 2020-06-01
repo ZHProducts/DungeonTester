@@ -1,34 +1,25 @@
-﻿using Pathfinding;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
 
-    private float atkcooldown =0f;
-
+    private float atkcooldown = 0f; 
+    [SerializeField] private float atkcooldownmax = 5f;
     private float health;
     [SerializeField] private float maxHealth = 10f;
-
-     private HealthBarController healthbar;
-
+    private HealthBarController healthbar;
     public GameObject MoneyDrop;
    
 
     private void Start()
     {
-
         healthbar = GameObject.FindObjectOfType<HealthBarController>();
         health = maxHealth;
-        
     }
 
     private void Awake()
     {
         health = maxHealth;
-        
-        
     }
 
 
@@ -37,12 +28,10 @@ public class EnemyController : MonoBehaviour
         atkcooldown -= Time.deltaTime;
         GameMaster target = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         
-        if (collision.gameObject.GetComponent<HiveBasis>() != null && atkcooldown < 0)
+        if (collision.gameObject.tag == "Basis" && atkcooldown < 0)
         {
             target.changeBasisHealth(-3);
             atkcooldown = 5f;
-
-            Debug.Log("Enemy hit the Base!");
         }
     }
 
