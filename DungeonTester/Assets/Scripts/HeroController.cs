@@ -10,7 +10,7 @@ public class HeroController : MonoBehaviour
     Vector2 inputMovement, currentRbPosition;
 
     private float inputHoriz, inputVert;
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 1f;
     
 
     // Start is called before the first frame update
